@@ -2685,537 +2685,537 @@
 
     /* BOTÕES COM PULSAÇÃO */
 
-.hero-button,
-.benefits-button,
-.conversion-whatsapp,
-.bm-whatsapp {
-    animation: buttonPulse 2.8s ease-in-out infinite;
-}
-
-@keyframes buttonPulse {
-    0%, 100% {
-        box-shadow: 0 0 10px rgba(168, 85, 247, .2);
-    }
-
-    50% {
-        box-shadow:
-            0 0 20px rgba(168, 85, 247, .6),
-            0 0 35px rgba(124, 58, 237, .3);
-    }
-}
-
-.hero-button:hover,
-.benefits-button:hover,
-.conversion-whatsapp:hover,
-.bm-whatsapp:hover {
-    animation-play-state: paused;
-}
-
-/* ÍCONES FLUTUANTES */
-
-.benefit-icon,
-.bm-card > svg {
-    animation: iconFloating 3.5s ease-in-out infinite;
-}
-
-@keyframes iconFloating {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-        filter: drop-shadow(0 0 12px #a855f7);
-    }
-}
-
-.benefit-card:nth-child(2n) .benefit-icon,
-.bm-card:nth-child(2n) > svg {
-    animation-delay: -.8s;
-}
-
-.benefit-card:nth-child(3n) .benefit-icon,
-.bm-card:nth-child(3n) > svg {
-    animation-delay: -1.6s;
-}
-
-.benefit-card,
-.bm-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.benefit-card::after,
-.bm-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-
-    width: 45%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(192, 132, 252, .12),
-        transparent
-    );
-
-    transform: skewX(-25deg);
-    animation: cardShine 7s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes cardShine {
-    0%, 65% {
-        left: -100%;
-    }
-
-    100% {
-        left: 150%;
-    }
-}
-
-.benefit-card:nth-child(2n)::after,
-.bm-card:nth-child(2n)::after {
-    animation-delay: -2s;
-}
-
-#site-particles {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 3;
-}
-
-.site-particle {
-    position: absolute;
-    bottom: -15px;
-
-    border-radius: 50%;
-    background: #c084fc;
-
-    box-shadow: 0 0 10px #a855f7;
-
-    animation: particleFloat linear infinite;
-}
-
-@keyframes particleFloat {
-    0% {
-        transform: translate(0, 0);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: .5;
-    }
-
-    80% {
-        opacity: .3;
-    }
-
-    100% {
-        transform: translate(70px, -110vh);
-        opacity: 0;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
     .hero-button,
     .benefits-button,
     .conversion-whatsapp,
-    .bm-whatsapp,
+    .bm-whatsapp {
+      animation: buttonPulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes buttonPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(168, 85, 247, .2);
+      }
+
+      50% {
+        box-shadow:
+          0 0 20px rgba(168, 85, 247, .6),
+          0 0 35px rgba(124, 58, 237, .3);
+      }
+    }
+
+    .hero-button:hover,
+    .benefits-button:hover,
+    .conversion-whatsapp:hover,
+    .bm-whatsapp:hover {
+      animation-play-state: paused;
+    }
+
+    /* ÍCONES FLUTUANTES */
+
     .benefit-icon,
-    .bm-card > svg,
+    .bm-card>svg {
+      animation: iconFloating 3.5s ease-in-out infinite;
+    }
+
+    @keyframes iconFloating {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+        filter: drop-shadow(0 0 12px #a855f7);
+      }
+    }
+
+    .benefit-card:nth-child(2n) .benefit-icon,
+    .bm-card:nth-child(2n)>svg {
+      animation-delay: -.8s;
+    }
+
+    .benefit-card:nth-child(3n) .benefit-icon,
+    .bm-card:nth-child(3n)>svg {
+      animation-delay: -1.6s;
+    }
+
+    .benefit-card,
+    .bm-card {
+      position: relative;
+      overflow: hidden;
+    }
+
     .benefit-card::after,
-    .bm-card::after,
-    .site-particle {
-        animation: none !important;
+    .bm-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+
+      width: 45%;
+      height: 100%;
+
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(192, 132, 252, .12),
+          transparent);
+
+      transform: skewX(-25deg);
+      animation: cardShine 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes cardShine {
+
+      0%,
+      65% {
+        left: -100%;
+      }
+
+      100% {
+        left: 150%;
+      }
+    }
+
+    .benefit-card:nth-child(2n)::after,
+    .bm-card:nth-child(2n)::after {
+      animation-delay: -2s;
     }
 
     #site-particles {
-        display: none;
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 3;
     }
-}
 
-.scroll-reveal {
-    opacity: 0;
-    translate: 0 35px;
+    .site-particle {
+      position: absolute;
+      bottom: -15px;
 
-    transition:
+      border-radius: 50%;
+      background: #c084fc;
+
+      box-shadow: 0 0 10px #a855f7;
+
+      animation: particleFloat linear infinite;
+    }
+
+    @keyframes particleFloat {
+      0% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: .5;
+      }
+
+      80% {
+        opacity: .3;
+      }
+
+      100% {
+        transform: translate(70px, -110vh);
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .hero-button,
+      .benefits-button,
+      .conversion-whatsapp,
+      .bm-whatsapp,
+      .benefit-icon,
+      .bm-card>svg,
+      .benefit-card::after,
+      .bm-card::after,
+      .site-particle {
+        animation: none !important;
+      }
+
+      #site-particles {
+        display: none;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      translate: 0 35px;
+
+      transition:
         opacity .8s ease,
         translate .8s cubic-bezier(.22, 1, .36, 1);
 
-    transition-delay: var(--reveal-delay, 0ms);
-}
+      transition-delay: var(--reveal-delay, 0ms);
+    }
 
-.scroll-reveal.is-visible {
-    opacity: 1;
-    translate: 0 0;
-}
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      translate: 0 0;
+    }
 
-.portfolio-card {
-    transform:
-        perspective(900px)
-        rotateX(var(--tilt-x, 0deg))
-        rotateY(var(--tilt-y, 0deg));
+    .portfolio-card {
+      transform:
+        perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
 
-    transition:
+      transition:
         transform .2s ease-out,
         box-shadow .4s ease,
         border-color .4s ease;
-}
-
-#cursor-glow {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 350px;
-    height: 350px;
-
-    border-radius: 50%;
-
-    background: radial-gradient(
-        circle,
-        rgba(124, 58, 237, .13),
-        rgba(168, 85, 247, .05) 40%,
-        transparent 70%
-    );
-
-    transform: translate(-50%, -50%);
-
-    pointer-events: none;
-    z-index: 4;
-
-    opacity: 0;
-    transition: opacity .5s ease;
-}
-
-@media (hover: none), (pointer: coarse) {
-    #cursor-glow {
-        display: none;
     }
-}
 
-#scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
+    #cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
 
-    width: 100%;
-    height: 4px;
+      width: 350px;
+      height: 350px;
 
-    background: linear-gradient(
-        90deg,
-        #7c3aed,
-        #a855f7,
-        #e879f9
-    );
+      border-radius: 50%;
 
-    box-shadow:
+      background: radial-gradient(circle,
+          rgba(124, 58, 237, .13),
+          rgba(168, 85, 247, .05) 40%,
+          transparent 70%);
+
+      transform: translate(-50%, -50%);
+
+      pointer-events: none;
+      z-index: 4;
+
+      opacity: 0;
+      transition: opacity .5s ease;
+    }
+
+    @media (hover: none),
+    (pointer: coarse) {
+      #cursor-glow {
+        display: none;
+      }
+    }
+
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 4px;
+
+      background: linear-gradient(90deg,
+          #7c3aed,
+          #a855f7,
+          #e879f9);
+
+      box-shadow:
         0 0 10px #a855f7,
         0 0 20px #7c3aed;
 
-    transform: scaleX(0);
-    transform-origin: left;
+      transform: scaleX(0);
+      transform-origin: left;
 
-    z-index: 10000;
-    pointer-events: none;
-}
-
-.floating-contact {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 1000;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 16px;
-}
-
-.floating-whatsapp {
-    position: relative;
-
-    width: 60px;
-    height: 60px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-    background: #00d66b;
-    color: white;
-
-    animation: whatsappPulse 2.5s infinite;
-
-    transition: transform .3s ease;
-}
-
-.floating-whatsapp:hover {
-    transform: scale(1.12);
-}
-
-.floating-whatsapp svg {
-    width: 31px;
-    height: 31px;
-}
-
-.floating-online {
-    position: absolute;
-    top: 1px;
-    right: 1px;
-
-    width: 14px;
-    height: 14px;
-
-    border-radius: 50%;
-    border: 3px solid #00d66b;
-    background: #ffffff;
-}
-
-.floating-contact-message {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-
-    padding: 17px 35px 17px 18px;
-
-    border: 1px solid rgba(168, 85, 247, .55);
-    border-radius: 14px;
-
-    background: #20132f;
-    color: white;
-
-    box-shadow: 0 8px 30px rgba(0, 0, 0, .4);
-
-    animation: contactFloat 3s ease-in-out infinite;
-}
-
-.floating-contact-message[hidden] {
-    display: none;
-}
-
-.floating-contact-message strong {
-    font-size: 14px;
-}
-
-.floating-contact-message span {
-    font-size: 11px;
-    color: #d4cde1;
-}
-
-.floating-contact-message button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-
-    border: none;
-    background: transparent;
-    color: #c4b5d4;
-
-    cursor: pointer;
-}
-
-.floating-contact-message button svg {
-    width: 15px;
-    height: 15px;
-}
-
-.floating-contact-message::after {
-    content: "";
-    position: absolute;
-    bottom: -7px;
-    right: 23px;
-
-    width: 12px;
-    height: 12px;
-
-    background: #20132f;
-    border-right: 1px solid #7542a2;
-    border-bottom: 1px solid #7542a2;
-
-    transform: rotate(45deg);
-}
-
-@keyframes whatsappPulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(0, 214, 107, .5);
+      z-index: 10000;
+      pointer-events: none;
     }
-
-    70% {
-        box-shadow: 0 0 0 17px rgba(0, 214, 107, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(0, 214, 107, 0);
-    }
-}
-
-@keyframes contactFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-@media (max-width: 600px) {
 
     .floating-contact {
-        bottom: 18px;
-        right: 18px;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 1000;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
     }
 
     .floating-whatsapp {
-        width: 52px;
-        height: 52px;
+      position: relative;
+
+      width: 60px;
+      height: 60px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+      background: #00d66b;
+      color: white;
+
+      animation: whatsappPulse 2.5s infinite;
+
+      transition: transform .3s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.12);
+    }
+
+    .floating-whatsapp svg {
+      width: 31px;
+      height: 31px;
+    }
+
+    .floating-online {
+      position: absolute;
+      top: 1px;
+      right: 1px;
+
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+      border: 3px solid #00d66b;
+      background: #ffffff;
     }
 
     .floating-contact-message {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      padding: 17px 35px 17px 18px;
+
+      border: 1px solid rgba(168, 85, 247, .55);
+      border-radius: 14px;
+
+      background: #20132f;
+      color: white;
+
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .4);
+
+      animation: contactFloat 3s ease-in-out infinite;
+    }
+
+    .floating-contact-message[hidden] {
+      display: none;
+    }
+
+    .floating-contact-message strong {
+      font-size: 14px;
+    }
+
+    .floating-contact-message span {
+      font-size: 11px;
+      color: #d4cde1;
+    }
+
+    .floating-contact-message button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+
+      border: none;
+      background: transparent;
+      color: #c4b5d4;
+
+      cursor: pointer;
+    }
+
+    .floating-contact-message button svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .floating-contact-message::after {
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      right: 23px;
+
+      width: 12px;
+      height: 12px;
+
+      background: #20132f;
+      border-right: 1px solid #7542a2;
+      border-bottom: 1px solid #7542a2;
+
+      transform: rotate(45deg);
+    }
+
+    @keyframes whatsappPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 214, 107, .5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 17px rgba(0, 214, 107, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 214, 107, 0);
+      }
+    }
+
+    @keyframes contactFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .floating-contact {
+        bottom: 18px;
+        right: 18px;
+      }
+
+      .floating-whatsapp {
+        width: 52px;
+        height: 52px;
+      }
+
+      .floating-contact-message {
         display: none;
+      }
+
     }
 
-}
+    /* DIVISÓRIAS COM ENERGIA */
 
-/* DIVISÓRIAS COM ENERGIA */
+    .process-section::before,
+    .conversion-section::before,
+    .site-footer::before {
 
-.process-section::before,
-.conversion-section::before,
-.site-footer::before {
+      background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(124, 58, 237, .2) 25%,
+          #a855f7 45%,
+          #f3d5ff 50%,
+          #a855f7 55%,
+          rgba(124, 58, 237, .2) 75%,
+          transparent 100%);
 
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(124, 58, 237, .2) 25%,
-        #a855f7 45%,
-        #f3d5ff 50%,
-        #a855f7 55%,
-        rgba(124, 58, 237, .2) 75%,
-        transparent 100%
-    );
+      background-size: 250% 100%;
 
-    background-size: 250% 100%;
+      box-shadow: 0 0 12px rgba(168, 85, 247, .4);
 
-    box-shadow: 0 0 12px rgba(168, 85, 247, .4);
+      animation: energyDivider 5s linear infinite;
+    }
 
-    animation: energyDivider 5s linear infinite;
-}
+    .conversion-section::before {
+      animation-delay: -1.5s;
+    }
 
-.conversion-section::before {
-    animation-delay: -1.5s;
-}
+    .site-footer::before {
+      animation-delay: -3s;
+    }
 
-.site-footer::before {
-    animation-delay: -3s;
-}
-
-@keyframes energyDivider {
-    from {
+    @keyframes energyDivider {
+      from {
         background-position: 125% 0;
-    }
+      }
 
-    to {
+      to {
         background-position: -125% 0;
+      }
     }
-}
 
-.magnetic-button {
-    translate:
-        var(--magnetic-x, 0px)
-        var(--magnetic-y, 0px);
+    .magnetic-button {
+      translate:
+        var(--magnetic-x, 0px) var(--magnetic-y, 0px);
 
-    transition:
+      transition:
         translate .25s ease-out,
         transform .3s ease,
         box-shadow .3s ease,
         background .3s ease;
-}
+    }
 
-.conversion-rocket,
-.bm-cta-content > svg {
-    animation: rocketFloating 3.5s ease-in-out infinite;
-}
+    .conversion-rocket,
+    .bm-cta-content>svg {
+      animation: rocketFloating 3.5s ease-in-out infinite;
+    }
 
-@keyframes rocketFloating {
-    0%, 100% {
+    @keyframes rocketFloating {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(-3deg);
         filter: drop-shadow(0 0 5px #a855f7);
-    }
+      }
 
-    50% {
+      50% {
         transform: translateY(-8px) rotate(3deg);
         filter: drop-shadow(0 0 15px #d8b4fe);
+      }
     }
-}
 
-@media (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion: reduce) {
 
-    .scroll-reveal {
+      .scroll-reveal {
         opacity: 1 !important;
         translate: none !important;
         transition: none !important;
-    }
+      }
 
-    .magnetic-button {
+      .magnetic-button {
         translate: none !important;
-    }
+      }
 
-    .portfolio-card {
+      .portfolio-card {
         transform: none !important;
-    }
+      }
 
-    #cursor-glow {
+      #cursor-glow {
         display: none !important;
-    }
+      }
 
-    .floating-whatsapp,
-    .floating-contact-message,
-    .conversion-rocket,
-    .bm-cta-content > svg,
-    .process-section::before,
-    .conversion-section::before,
-    .site-footer::before {
+      .floating-whatsapp,
+      .floating-contact-message,
+      .conversion-rocket,
+      .bm-cta-content>svg,
+      .process-section::before,
+      .conversion-section::before,
+      .site-footer::before {
         animation: none !important;
+      }
+
     }
 
-}
-
-.floating-whatsapp .whatsapp-icon {
-    width: 32px;
-    height: 32px;
-    color: #ffffff;
-    fill: currentColor;
-
-    transition: transform .3s ease;
-}
-
-.floating-whatsapp:hover .whatsapp-icon {
-    transform: scale(1.12) rotate(-8deg);
-}
-
-@media (max-width: 600px) {
     .floating-whatsapp .whatsapp-icon {
+      width: 32px;
+      height: 32px;
+      color: #ffffff;
+      fill: currentColor;
+
+      transition: transform .3s ease;
+    }
+
+    .floating-whatsapp:hover .whatsapp-icon {
+      transform: scale(1.12) rotate(-8deg);
+    }
+
+    @media (max-width: 600px) {
+      .floating-whatsapp .whatsapp-icon {
         width: 28px;
         height: 28px;
+      }
     }
-}
 
-/* MENU MOBILE FLUTUANTE */
+    /* MENU MOBILE FLUTUANTE */
 
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
 
-    .mobile-menu {
+      .mobile-menu {
         position: fixed;
 
         top: 18px;
@@ -3247,86 +3247,1200 @@
         transition: .3s ease;
 
         animation: mobileMenuPulse 3s ease-in-out infinite;
-    }
+      }
 
-    .mobile-menu i,
-    .mobile-menu svg {
+      .mobile-menu i,
+      .mobile-menu svg {
         width: 26px;
         height: 26px;
-    }
+      }
 
-    .mobile-menu:hover {
+      .mobile-menu:hover {
         background: #7c3aed;
-    }
+      }
 
-    .mobile-menu:active {
+      .mobile-menu:active {
         transform: scale(.92);
-    }
+      }
 
-    body.menu-open .mobile-menu {
+      body.menu-open .mobile-menu {
         opacity: 0;
         pointer-events: none;
+      }
     }
+
+    /* PULSAÇÃO DO MENU */
+
+    @keyframes mobileMenuPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(124, 58, 237, .2);
+      }
+
+      50% {
+        box-shadow: 0 0 25px rgba(168, 85, 247, .5);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mobile-menu {
+        animation: none;
+      }
+    }
+
+    /* SCROLLBAR PERSONALIZADA */
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0c0716;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg,
+          #c084fc,
+          #9333ea,
+          #6900d9);
+
+      border-radius: 20px;
+      border: 2px solid #0c0716;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg,
+          #e9baff,
+          #a855f7);
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: #0c0716;
+    }
+
+    /* COMPATIBILIDADE COM FIREFOX */
+
+    @supports not selector(::-webkit-scrollbar) {
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #9333ea #0c0716;
+      }
+    }
+
+    /* ========================================
+   SEÇÃO FAQ
+======================================== */
+
+    .faq-section {
+      position: relative;
+      padding: 85px 6% 75px;
+
+      overflow: hidden;
+      isolation: isolate;
+
+      background:
+        radial-gradient(ellipse at 0% 40%,
+          rgba(124, 0, 230, .15),
+          transparent 35%),
+        radial-gradient(ellipse at 100% 65%,
+          rgba(124, 0, 230, .12),
+          transparent 35%);
+    }
+
+    /* DIVISÓRIA SUPERIOR ANIMADA */
+
+    .faq-section::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background: linear-gradient(90deg,
+          transparent,
+          #55208a,
+          #e9baff,
+          #a855f7,
+          transparent);
+
+      background-size: 250% 100%;
+
+      animation: faqDivider 6s linear infinite;
+    }
+
+    @keyframes faqDivider {
+      from {
+        background-position: 125% 0;
+      }
+
+      to {
+        background-position: -125% 0;
+      }
+    }
+
+    /* ONDAS DECORATIVAS */
+
+    .faq-section::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: -1;
+      pointer-events: none;
+
+      background:
+        repeating-radial-gradient(ellipse at -15% 75%,
+          transparent 0px,
+          transparent 13px,
+          rgba(168, 85, 247, .15) 14px,
+          transparent 15px) left center / 25% 75% no-repeat,
+
+        repeating-radial-gradient(ellipse at 115% 25%,
+          transparent 0px,
+          transparent 13px,
+          rgba(168, 85, 247, .15) 14px,
+          transparent 15px) right center / 25% 75% no-repeat;
+
+      mask-image: linear-gradient(to bottom,
+          transparent,
+          black 30%,
+          black 70%,
+          transparent);
+
+      opacity: .7;
+
+      animation: faqWaveGlow 6s ease-in-out infinite;
+    }
+
+    @keyframes faqWaveGlow {
+
+      0%,
+      100% {
+        opacity: .35;
+      }
+
+      50% {
+        opacity: .85;
+      }
+    }
+
+    /* CONTAINER */
+
+    .faq-container {
+      position: relative;
+
+      max-width: 960px;
+      width: 100%;
+
+      margin: 0 auto;
+    }
+
+    /* ========================================
+   CABEÇALHO
+======================================== */
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .faq-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      padding: 10px 19px;
+      margin-bottom: 15px;
+
+      border: 1px solid rgba(168, 85, 247, .5);
+      border-radius: 16px;
+
+      background: rgba(124, 58, 237, .12);
+
+      color: #d580ff;
+
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .faq-badge svg {
+      width: 21px;
+      height: 21px;
+
+      filter: drop-shadow(0 0 7px #a855f7);
+    }
+
+    .faq-header h2 {
+      margin: 0 0 12px;
+
+      font-size: clamp(30px, 4vw, 49px);
+      font-weight: 800;
+
+      letter-spacing: -1.5px;
+      line-height: 1.2;
+
+      color: #ffffff;
+    }
+
+    .faq-header h2 span {
+      background: linear-gradient(110deg,
+          #c084fc,
+          #9418f5,
+          #7c3aed);
+
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      color: transparent;
+    }
+
+    .faq-header p {
+      margin: 0;
+
+      color: #d4cde1;
+
+      font-size: clamp(14px, 1.5vw, 18px);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+   LISTA DE PERGUNTAS
+======================================== */
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+
+      gap: 11px;
+    }
+
+    .faq-item {
+      position: relative;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(168, 85, 247, .55);
+      border-radius: 13px;
+
+      background: linear-gradient(110deg,
+          rgba(35, 15, 58, .65),
+          rgba(14, 8, 25, .85));
+
+      transition:
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #c084fc;
+
+      box-shadow:
+        0 0 20px rgba(168, 85, 247, .12);
+    }
+
+    /* PERGUNTA ATIVA */
+
+    .faq-item.active {
+      border-color: #c34cff;
+
+      background: linear-gradient(110deg,
+          rgba(77, 22, 119, .48),
+          rgba(32, 13, 55, .85));
+
+      box-shadow:
+        0 0 25px rgba(168, 85, 247, .17),
+        inset 0 0 25px rgba(168, 85, 247, .06);
+    }
+
+    /* BOTÃO DA PERGUNTA */
+
+    .faq-question {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      gap: 25px;
+
+      padding: 17px 26px;
+
+      border: none;
+      background: transparent;
+
+      color: #ffffff;
+
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+
+      text-align: left;
+
+      cursor: pointer;
+    }
+
+    .faq-question span {
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .faq-question:focus-visible {
+      outline: 2px solid #d8b4fe;
+      outline-offset: -4px;
+      border-radius: 13px;
+    }
+
+    /* ÍCONES */
+
+    .faq-question .faq-icon {
+      width: 28px;
+      height: 28px;
+
+      flex-shrink: 0;
+
+      color: #c45aff;
+
+      stroke-width: 2.3;
+
+      filter: drop-shadow(0 0 8px rgba(168, 85, 247, .4));
+
+      transition: transform .3s ease;
+    }
+
+    .faq-item:hover .faq-icon {
+      transform: scale(1.12);
+    }
+
+    /* SETA */
+
+    .faq-question .faq-arrow {
+      width: 24px;
+      height: 24px;
+
+      flex-shrink: 0;
+
+      color: #d580ff;
+
+      transition: transform .4s ease;
+    }
+
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* ========================================
+   RESPOSTAS ANIMADAS
+======================================== */
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+
+      opacity: 0;
+
+      transition:
+        grid-template-rows .4s ease,
+        opacity .3s ease;
+    }
+
+    .faq-answer-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .faq-item.active .faq-answer {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    .faq-answer p {
+      margin: 0;
+
+      padding: 0 28px 20px 79px;
+
+      font-size: 15px;
+      line-height: 1.75;
+
+      color: #e0d6eb;
+    }
+
+    /* ========================================
+   CARD DE CONTATO
+======================================== */
+
+    .faq-contact {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+
+      margin-top: 30px;
+      padding: 25px 28px;
+
+      border: 1px solid rgba(168, 85, 247, .5);
+      border-radius: 15px;
+
+      background: linear-gradient(110deg,
+          rgba(52, 20, 85, .45),
+          rgba(22, 10, 40, .7));
+
+      box-shadow:
+        inset 0 0 30px rgba(124, 58, 237, .05);
+    }
+
+    .faq-contact-info {
+      display: flex;
+      align-items: center;
+
+      gap: 25px;
+    }
+
+    .faq-contact-icon {
+      width: 53px;
+      height: 53px;
+
+      flex-shrink: 0;
+
+      color: #b64bff;
+
+      filter: drop-shadow(0 0 12px rgba(168, 85, 247, .6));
+
+      animation: faqIconFloat 3.5s ease-in-out infinite;
+    }
+
+    @keyframes faqIconFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .faq-contact h3 {
+      margin: 0 0 7px;
+
+      color: #ffffff;
+
+      font-size: 21px;
+      font-weight: 750;
+    }
+
+    .faq-contact p {
+      margin: 0;
+
+      color: #d4cde1;
+
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* BOTÃO WHATSAPP */
+
+    .faq-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      flex-shrink: 0;
+
+      padding: 14px 20px;
+
+      border: 1px solid rgba(216, 180, 254, .6);
+      border-radius: 12px;
+
+      background: linear-gradient(110deg,
+          #a31aff,
+          #6900d9);
+
+      color: #ffffff;
+
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+
+      animation: faqButtonPulse 3s ease-in-out infinite;
+
+      transition: transform .3s ease;
+    }
+
+    .faq-whatsapp svg {
+      width: 20px;
+      height: 20px;
+
+      flex-shrink: 0;
+    }
+
+    .faq-whatsapp:hover {
+      transform: translateY(-3px);
+      animation-play-state: paused;
+    }
+
+    @keyframes faqButtonPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 12px rgba(168, 85, 247, .2);
+      }
+
+      50% {
+        box-shadow: 0 0 25px rgba(168, 85, 247, .55);
+      }
+    }
+
+    /* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+    @media (max-width: 900px) {
+
+      .faq-section {
+        padding: 65px 5%;
+      }
+
+      .faq-contact {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .faq-whatsapp {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .faq-section {
+        padding: 55px 5%;
+      }
+
+      .faq-header {
+        margin-bottom: 26px;
+      }
+
+      .faq-header h2 {
+        letter-spacing: -.8px;
+      }
+
+      .faq-badge {
+        font-size: 12px;
+        padding: 8px 14px;
+      }
+
+      .faq-list {
+        gap: 9px;
+      }
+
+      .faq-question {
+        gap: 12px;
+        padding: 15px 13px;
+
+        font-size: 14px;
+      }
+
+      .faq-question .faq-icon {
+        width: 22px;
+        height: 22px;
+      }
+
+      .faq-question .faq-arrow {
+        width: 19px;
+        height: 19px;
+      }
+
+      .faq-answer p {
+        padding: 0 15px 17px 47px;
+
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .faq-contact {
+        padding: 22px 17px;
+        gap: 20px;
+      }
+
+      .faq-contact-info {
+        gap: 15px;
+      }
+
+      .faq-contact-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .faq-contact h3 {
+        font-size: 17px;
+      }
+
+      .faq-contact p {
+        font-size: 12px;
+      }
+
+      .faq-whatsapp {
+        font-size: 12px;
+        padding: 14px 10px;
+      }
+
+      .faq-section::after {
+        opacity: .3;
+      }
+    }
+
+    /* ACESSIBILIDADE */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .faq-section::before,
+      .faq-section::after,
+      .faq-contact-icon,
+      .faq-whatsapp {
+        animation: none !important;
+      }
+
+      .faq-answer,
+      .faq-item,
+      .faq-arrow,
+      .faq-icon,
+      .faq-whatsapp {
+        transition: none !important;
+      }
+    }
+
+    #faq {
+    scroll-margin-top: 85px;
 }
 
-/* PULSAÇÃO DO MENU */
+/* ========================================
+   FAQ - VER MAIS PERGUNTAS
+======================================== */
 
-@keyframes mobileMenuPulse {
+.faq-more-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+    margin: 28px 0;
+}
+
+/* DIVISÓRIAS LUMINOSAS */
+
+.faq-more-wrapper::before,
+.faq-more-wrapper::after {
+    content: "";
+
+    flex: 1;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #a855f7,
+        transparent
+    );
+
+    box-shadow: 0 0 10px rgba(168, 85, 247, .4);
+
+    animation: faqLinePulse 3s ease-in-out infinite;
+}
+
+@keyframes faqLinePulse {
     0%, 100% {
-        box-shadow: 0 0 10px rgba(124, 58, 237, .2);
+        opacity: .35;
     }
 
     50% {
-        box-shadow: 0 0 25px rgba(168, 85, 247, .5);
+        opacity: 1;
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .mobile-menu {
-        animation: none;
-    }
-}
+/* ========================================
+   BOTÃO VER MAIS
+======================================== */
 
-/* SCROLLBAR PERSONALIZADA */
+.faq-more-button {
+    position: relative;
 
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-::-webkit-scrollbar-track {
-    background: #0c0716;
-}
+    gap: 12px;
 
-::-webkit-scrollbar-thumb {
+    padding: 14px 23px;
+
+    border: 1px solid #c084fc;
+    border-radius: 13px;
+
     background: linear-gradient(
-        180deg,
-        #c084fc,
-        #9333ea,
+        110deg,
+        #9418f5,
         #6900d9
     );
 
-    border-radius: 20px;
-    border: 2px solid #0c0716;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    animation: faqMorePulse 3s ease-in-out infinite;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* HOVER */
+
+.faq-more-button:hover {
+    transform: translateY(-3px);
+
     background: linear-gradient(
-        180deg,
-        #e9baff,
-        #a855f7
+        110deg,
+        #ac35ff,
+        #7c3aed
+    );
+
+    border-color: #e9d5ff;
+
+    animation-play-state: paused;
+}
+
+.faq-more-button:active {
+    transform: scale(.97);
+}
+
+.faq-more-button:focus-visible,
+.faq-collapse-button:focus-visible {
+    outline: 2px solid #e9d5ff;
+    outline-offset: 5px;
+}
+
+/* PULSAÇÃO NEON */
+
+@keyframes faqMorePulse {
+    0%, 100% {
+        box-shadow:
+            0 0 10px rgba(168, 85, 247, .25),
+            inset 0 0 12px rgba(255, 255, 255, .05);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(168, 85, 247, .65),
+            0 0 40px rgba(124, 58, 237, .2),
+            inset 0 0 15px rgba(255, 255, 255, .12);
+    }
+}
+
+/* REFLEXO LUMINOSO */
+
+.faq-more-button::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 40%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, .2),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    pointer-events: none;
+
+    animation: faqMoreShine 5s infinite;
+}
+
+@keyframes faqMoreShine {
+    0%, 65% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+/* SETA DO BOTÃO */
+
+.faq-more-arrow {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    transition: transform .4s ease;
+}
+
+.faq-more-button[aria-expanded="true"] .faq-more-arrow {
+    transform: rotate(180deg);
+}
+
+/* CONTADOR */
+
+.faq-more-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 29px;
+
+    padding: 4px 8px;
+
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, .12);
+
+    color: #f3e8ff;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.faq-more-count[hidden] {
+    display: none;
+}
+
+/* ========================================
+   CONTAINER DAS PERGUNTAS ADICIONAIS
+======================================== */
+
+.faq-extra {
+    display: grid;
+    grid-template-rows: 0fr;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        grid-template-rows .5s cubic-bezier(.22, 1, .36, 1),
+        opacity .4s ease,
+        visibility 0s linear .5s;
+}
+
+/* ESTADO EXPANDIDO */
+
+.faq-extra.is-expanded {
+    grid-template-rows: 1fr;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        grid-template-rows .5s cubic-bezier(.22, 1, .36, 1),
+        opacity .4s ease,
+        visibility 0s;
+}
+
+.faq-extra-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* PAINEL INTERNO */
+
+.faq-extra-content {
+    position: relative;
+
+    padding: 20px;
+
+    border: 1px solid rgba(168, 85, 247, .4);
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(45, 15, 75, .4),
+        rgba(13, 7, 25, .65)
+    );
+
+    box-shadow:
+        inset 0 0 30px rgba(124, 58, 237, .07);
+}
+
+/* CABEÇALHO DAS PERGUNTAS ADICIONAIS */
+
+.faq-extra-header {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+    padding: 0 3px;
+
+    color: #c084fc;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .3px;
+}
+
+.faq-extra-header svg {
+    width: 20px;
+    height: 20px;
+
+    filter: drop-shadow(0 0 8px #a855f7);
+}
+
+/* CARDS SECUNDÁRIOS */
+
+.faq-extra .faq-item {
+    border-color: rgba(168, 85, 247, .35);
+}
+
+.faq-extra .faq-item:hover,
+.faq-extra .faq-item.active {
+    border-color: #c084fc;
+}
+
+/* GARANTIR COMPATIBILIDADE COM SCROLL REVEAL */
+
+.faq-extra .faq-item.scroll-reveal {
+    opacity: 1;
+    translate: none;
+    transition-delay: 0ms;
+}
+
+/* ENTRADA SEQUENCIAL */
+
+.faq-extra.is-expanded .faq-item {
+    animation: faqExtraAppear .55s ease both;
+
+    animation-delay: var(--faq-delay, 0ms);
+}
+
+@keyframes faqExtraAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   BOTÃO OCULTAR PERGUNTAS
+======================================== */
+
+.faq-collapse-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+}
+
+.faq-collapse-wrapper::before,
+.faq-collapse-wrapper::after {
+    content: "";
+
+    flex: 1;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(168, 85, 247, .5),
+        transparent
     );
 }
 
-::-webkit-scrollbar-corner {
-    background: #0c0716;
+.faq-collapse-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 17px;
+
+    border: 1px solid rgba(192, 132, 252, .65);
+    border-radius: 30px;
+
+    background: rgba(124, 58, 237, .1);
+
+    color: #d8b4fe;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
 }
 
-/* COMPATIBILIDADE COM FIREFOX */
+.faq-collapse-button svg {
+    width: 17px;
+    height: 17px;
 
-@supports not selector(::-webkit-scrollbar) {
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: #9333ea #0c0716;
+    flex-shrink: 0;
+}
+
+.faq-collapse-button:hover {
+    background: rgba(124, 58, 237, .25);
+
+    border-color: #d8b4fe;
+    color: #ffffff;
+
+    box-shadow: 0 0 20px rgba(168, 85, 247, .25);
+
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   AJUSTES DO CTA
+======================================== */
+
+.faq-contact-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.faq-contact-info p {
+    max-width: 470px;
+}
+
+.faq-whatsapp {
+    text-align: center;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .faq-more-wrapper {
+        gap: 8px;
+        margin: 23px 0;
+    }
+
+    .faq-more-button {
+        gap: 8px;
+        padding: 13px 12px;
+
+        font-size: 12px;
+    }
+
+    .faq-more-arrow {
+        width: 17px;
+        height: 17px;
+    }
+
+    .faq-more-count {
+        min-width: 22px;
+
+        padding: 3px 6px;
+
+        font-size: 10px;
+    }
+
+    .faq-extra-content {
+        padding: 12px;
+    }
+
+    .faq-extra-header {
+        font-size: 12px;
+
+        margin-bottom: 13px;
+    }
+
+    .faq-extra .faq-question {
+        padding: 13px 10px;
+
+        gap: 9px;
+
+        font-size: 13px;
+    }
+
+    .faq-extra .faq-answer p {
+        padding-left: 41px;
+    }
+
+    .faq-collapse-button {
+        font-size: 11px;
+
+        padding: 10px 12px;
+    }
+
+    .faq-collapse-wrapper {
+        gap: 7px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .faq-more-wrapper::before,
+    .faq-more-wrapper::after {
+        display: none;
+    }
+
+    .faq-more-button {
+        width: 100%;
+    }
+
+    .faq-collapse-wrapper::before,
+    .faq-collapse-wrapper::after {
+        display: none;
+    }
+}
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .faq-more-wrapper::before,
+    .faq-more-wrapper::after,
+    .faq-more-button,
+    .faq-more-button::after,
+    .faq-extra.is-expanded .faq-item {
+        animation: none !important;
+    }
+
+    .faq-extra,
+    .faq-more-arrow,
+    .faq-more-button,
+    .faq-collapse-button {
+        transition: none !important;
     }
 }

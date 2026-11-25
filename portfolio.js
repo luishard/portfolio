@@ -397,17 +397,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
         !("IntersectionObserver" in window)) return;
 
-    const elements = document.querySelectorAll(`
-        .benefits-intro,
-        .benefit-card,
-        .portfolio-intro,
-        .portfolio-carousel,
-        .process-intro,
-        .process-step,
-        .conversion-info,
-        .conversion-cta,
-        .footer-container
-    `);
+const elements = document.querySelectorAll(`
+    .benefits-intro,
+    .benefit-card,
+    .portfolio-intro,
+    .portfolio-carousel,
+    .process-intro,
+    .process-step,
+    .conversion-info,
+    .conversion-cta,
+    .footer-container,
+    .faq-header,
+    .faq-container > .faq-list > .faq-item,
+    .faq-more-wrapper,
+    .faq-contact
+`);
 
     const observer = new IntersectionObserver((entries) => {
 
@@ -585,14 +589,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)"
     ).matches) return;
 
-    const buttons = document.querySelectorAll(`
-        .hero-button,
-        .header-button,
-        .benefits-button,
-        .portfolio-more,
-        .conversion-whatsapp,
-        .bm-whatsapp
-    `);
+const buttons = document.querySelectorAll(`
+    .hero-button,
+    .header-button,
+    .benefits-button,
+    .portfolio-more,
+    .conversion-whatsapp,
+    .bm-whatsapp,
+    .faq-more-button,
+    .faq-collapse-button,
+    .faq-whatsapp
+`);
 
     buttons.forEach(button => {
 
@@ -773,6 +780,289 @@ document.addEventListener("DOMContentLoaded", () => {
         if (document.hidden) {
             hideCursor();
         }
+
+    });
+
+});
+
+/* ========================================
+   FAQ COMPLETO E INTERATIVO
+======================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const faqSection = document.getElementById("faq");
+
+    if (!faqSection) return;
+
+    const faqItems = faqSection.querySelectorAll(".faq-item");
+
+    const moreButton = document.getElementById("faqMoreButton");
+    const moreText = document.getElementById("faqMoreText");
+    const moreCount = document.getElementById("faqMoreCount");
+
+    const extraFaq = document.getElementById("faqExtra");
+
+    const collapseButton = document.getElementById(
+        "faqCollapseButton"
+    );
+
+    if (
+        !moreButton ||
+        !moreText ||
+        !moreCount ||
+        !extraFaq ||
+        !collapseButton
+    ) return;
+
+    const extraItems = extraFaq.querySelectorAll(".faq-item");
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    );
+
+    let isExpanded = false;
+
+    /* ========================================
+       FECHAR UMA PERGUNTA
+    ======================================== */
+
+    function closeQuestion(item) {
+
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        item.classList.remove("active");
+
+        if (question) {
+            question.setAttribute("aria-expanded", "false");
+        }
+
+        if (answer) {
+            answer.inert = true;
+        }
+
+    }
+
+    /* ========================================
+       ABRIR UMA PERGUNTA
+    ======================================== */
+
+    function openQuestion(item) {
+
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        item.classList.add("active");
+
+        if (question) {
+            question.setAttribute("aria-expanded", "true");
+        }
+
+        if (answer) {
+            answer.inert = false;
+        }
+
+    }
+
+    /* ========================================
+       CONFIGURAR TODAS AS PERGUNTAS
+    ======================================== */
+
+    faqItems.forEach((item, index) => {
+
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        if (!question || !answer) return;
+
+        // Identificadores de acessibilidade
+
+        question.id = `faq-question-${index}`;
+        answer.id = `faq-answer-${index}`;
+
+        question.setAttribute(
+            "aria-controls",
+            answer.id
+        );
+
+        answer.setAttribute(
+            "aria-labelledby",
+            question.id
+        );
+
+        // Todas as perguntas começam fechadas
+
+        closeQuestion(item);
+
+        // Evento de clique
+
+        question.addEventListener("click", () => {
+
+            const wasActive = item.classList.contains("active");
+
+            // Fechar todas as respostas
+
+            faqItems.forEach(otherItem => {
+
+                closeQuestion(otherItem);
+
+            });
+
+            // Abrir somente a pergunta selecionada
+
+            if (!wasActive) {
+
+                openQuestion(item);
+
+            }
+
+        });
+
+    });
+
+    /* ========================================
+       CONTADOR AUTOMÁTICO
+    ======================================== */
+
+    moreCount.textContent = `+${extraItems.length}`;
+
+    /* ========================================
+       ANIMAÇÃO SEQUENCIAL
+    ======================================== */
+
+    extraItems.forEach((item, index) => {
+
+        item.style.setProperty(
+            "--faq-delay",
+            `${index * 65}ms`
+        );
+
+    });
+
+    /* ========================================
+       ESTADO INICIAL
+    ======================================== */
+
+    extraFaq.inert = true;
+
+    extraFaq.classList.remove("is-expanded");
+
+    moreButton.setAttribute("aria-expanded", "false");
+
+    moreText.textContent = "Ver mais perguntas do FAQ";
+
+    moreCount.hidden = false;
+
+    /* ========================================
+       EXPANDIR FAQ
+    ======================================== */
+
+    function expandFaq() {
+
+        isExpanded = true;
+
+        extraFaq.inert = false;
+
+        extraFaq.classList.add("is-expanded");
+
+        moreButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        moreText.textContent = "Mostrar menos perguntas";
+
+        moreCount.hidden = true;
+
+    }
+
+    /* ========================================
+       RECOLHER FAQ
+    ======================================== */
+
+    function collapseFaq(shouldScroll = false) {
+
+        isExpanded = false;
+
+        // Devolver o foco ao botão principal
+
+        if (extraFaq.contains(document.activeElement)) {
+
+            moreButton.focus({
+                preventScroll: true
+            });
+
+        }
+
+        // Fechar respostas adicionais
+
+        extraItems.forEach(item => {
+
+            closeQuestion(item);
+
+        });
+
+        // Recolher o container
+
+        extraFaq.inert = true;
+
+        extraFaq.classList.remove("is-expanded");
+
+        // Restaurar botão
+
+        moreButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        moreText.textContent = "Ver mais perguntas do FAQ";
+
+        moreCount.hidden = false;
+
+        // Retornar ao botão principal
+
+        if (shouldScroll) {
+
+            moreButton.scrollIntoView({
+
+                behavior: reducedMotion.matches
+                    ? "instant"
+                    : "smooth",
+
+                block: "center"
+
+            });
+
+        }
+
+    }
+
+    /* ========================================
+       EVENTO DO BOTÃO PRINCIPAL
+    ======================================== */
+
+    moreButton.addEventListener("click", () => {
+
+        if (isExpanded) {
+
+            collapseFaq();
+
+        } else {
+
+            expandFaq();
+
+        }
+
+    });
+
+    /* ========================================
+       EVENTO DO BOTÃO INFERIOR
+    ======================================== */
+
+    collapseButton.addEventListener("click", () => {
+
+        collapseFaq(true);
 
     });
 
